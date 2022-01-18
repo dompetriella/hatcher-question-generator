@@ -7,43 +7,57 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+
       <section class="question-section">
-        <h1>Question Generator</h1>
         <div class="question-container">
-            <div>Question</div>
-            <textarea id="question-input" rows="6" cols="50"></textarea>
+            <h3>Question</h3>
+            <textarea id="question-input" rows="4" cols="100" class="question-text"></textarea>
         </div>
 
-        <div class="answer-container">
-            <div>Answer 1</div>
-            <textarea id="answer1-input" rows="3" cols="50"></textarea>
-        </div>
+        <div class="answer-container-main">
 
-        <div class="answer-container">
-            <div>Answer 2</div>
-            <textarea id="answer1-input" rows="3" cols="50"></textarea>
-        </div>
+            <div class="answer-inputs-container">
+                
+                <div class="answer-container">
+                    <div class="answer-text-container">
+                        <div>Answer 1</div>
+                        <textarea id="answer1-input" rows="3" cols="50"></textarea>
+                    </div>
+                </div>
 
-        <div class="answer-container">
-            <div>Answer 3 (optional)</div>
-            <textarea id="answer1-input" rows="3" cols="50"></textarea>
-        </div>
+                <div class="answer-container">
+                    <div>Answer 2</div>
+                    <textarea id="answer2-input" rows="3" cols="50"></textarea>
+                    <div  class="gen-natures-container" id="answer2-hook"></div>
+                </div>
 
-        <div class="answer-container">
-            <div>Answer 4 (optional)</div>
-            <textarea id="answer1-input" rows="3" cols="50"></textarea>
-        </div>
+                <div class="answer-container">
+                    <div>Answer 3 (optional)</div>
+                    <textarea id="answer3-input" rows="3" cols="50"></textarea>
+                    <div class="gen-natures-container"  id="answer3-hook"></div>
+                </div>
 
-        <div class="answer-container">
-            <div>Answer 5 (optional)</div>
-            <textarea id="answer1-input" rows="3" cols="50"></textarea>
-        </div>
+                <div class="answer-container">
+                    <div>Answer 4 (optional)</div>
+                    <textarea id="answer4-input" rows="3" cols="50"></textarea>
+                    <div  class="gen-natures-container" id="answer4-hook"></div>
+                </div>
 
-        <button>Generate JSON</button>
+                <div class="answer-container">
+                    <div>Answer 5 (optional)</div>
+                    <textarea id="answer5-input" rows="3" cols="50"></textarea>
+                    <div class="gen-natures-container"  id="answer5-hook"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="generate-button" onclick="generateJSON()">Generate JSON</div>
       </section>
 
       <section>
-          <div id="json-output"><div>
+          <pre id="json-output"><pre>
       </section>
 
 

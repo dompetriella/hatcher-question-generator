@@ -11,7 +11,7 @@
       <section class="question-section">
         <div class="question-container">
             <h3>Question</h3>
-            <textarea id="question-input" rows="4" cols="100" class="question-text"></textarea>
+            <textarea id="question-input" rows="3" cols="150" class="question-text"></textarea>
         </div>
 
         <div class="answer-container-main">
@@ -21,38 +21,79 @@
                 <div class="answer-container">
                     <div class="answer-text-container">
                         <div>Answer 1</div>
-                        <textarea id="answer1-input" rows="3" cols="50"></textarea>
+                        <textarea class="answer-text" id="answer1-input" rows="3" cols="75"></textarea>
+                    </div>
+                    <div class="background-dd-container">
+                        <div>Background</div>
+                        <select id="select1" class="background-dd">
+                        </select>
                     </div>
                 </div>
 
-                <div class="answer-container">
-                    <div>Answer 2</div>
-                    <textarea id="answer2-input" rows="3" cols="50"></textarea>
-                    <div  class="gen-natures-container" id="answer2-hook"></div>
-                </div>
+                <div class="natures-container" id="natures1-hook"></div>
 
                 <div class="answer-container">
-                    <div>Answer 3 (optional)</div>
-                    <textarea id="answer3-input" rows="3" cols="50"></textarea>
-                    <div class="gen-natures-container"  id="answer3-hook"></div>
+                    <div class="answer-text-container">
+                        <div>Answer 2</div>
+                        <textarea class="answer-text" id="answer2-input" rows="3" cols="75"></textarea>
+                    </div>
+                    <div class="background-dd-container">
+                        <div>Background</div>
+                        <select id="select2" class="background-dd">
+                        </select>
+                    </div>
                 </div>
 
-                <div class="answer-container">
-                    <div>Answer 4 (optional)</div>
-                    <textarea id="answer4-input" rows="3" cols="50"></textarea>
-                    <div  class="gen-natures-container" id="answer4-hook"></div>
-                </div>
+                <div class="natures-container" id="natures2-hook"></div>
 
                 <div class="answer-container">
-                    <div>Answer 5 (optional)</div>
-                    <textarea id="answer5-input" rows="3" cols="50"></textarea>
-                    <div class="gen-natures-container"  id="answer5-hook"></div>
+                    <div class="answer-text-container">
+                        <div>Answer 3 (optional)</div>
+                        <textarea class="answer-text" id="answer3-input" rows="3" cols="75"></textarea>
+                    </div>
+                    <div class="background-dd-container">
+                        <div>Background</div>
+                        <select id="select3" class="background-dd">
+                        </select>
+                    </div>
                 </div>
+
+                <div class="natures-container" id="natures3-hook"></div>
+
+                <div class="answer-container">
+                    <div class="answer-text-container">
+                        <div>Answer 4 (optional)</div>
+                        <textarea class="answer-text" id="answer4-input" rows="3" cols="75"></textarea>
+                    </div>
+                    <div class="background-dd-container">
+                        <div>Background</div>
+                        <select id="select4" class="background-dd">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="natures-container" id="natures4-hook"></div>
+
+                <div class="answer-container">
+                    <div class="answer-text-container">
+                        <div>Answer 5 (optional)</div>
+                        <textarea class="answer-text" id="answer5-input" rows="3" cols="75"></textarea>
+                    </div>
+                    <div class="background-dd-container">
+                        <div>Background</div>
+                        <select id="select5" class="background-dd">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="natures-container" id="natures5-hook"></div>
+
 
             </div>
 
 
         </div>
+
         <div class="generate-button" onclick="generateJSON()">Generate JSON</div>
       </section>
 

@@ -34,6 +34,45 @@ const naturesList = [
     "Stoic"    
 ]
 
+const backgrounds = [
+    "",
+    "Acolyte",
+    "Charlatan",
+    "Criminal",
+    "Entertainer",
+    "Guild Artisan",
+    "Hermit",
+    "Noble",
+    "Outlander",
+    "Sage",
+    "Sailor",
+    "Soldier",
+    "Urchin"
+]
+
+const totalAnswers = 5;
+
+for (let i = 0; i < totalAnswers; i++) {
+    const naturesHook = document.getElementById(`natures${i+1}-hook`)
+    naturesList.forEach(nature => {
+        console.log((i+1) + " " + nature)
+        let element = document.createElement("div")
+        element.textContent = nature
+        element.classList.add('nature-item')
+        naturesHook.appendChild(element)
+    })
+
+    const selectHook = document.getElementById(`select${i+1}`)
+    backgrounds.forEach(bg => {
+        console.log((i+1) + " " + bg)
+        element = document.createElement("option")
+        element.textContent = bg
+        element.value = bg
+        selectHook.appendChild(element)
+    })
+
+}
+
 const generateJSON = () => {
     let outputString = ""
 

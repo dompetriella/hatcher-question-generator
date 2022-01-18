@@ -52,13 +52,31 @@ const backgrounds = [
 
 const totalAnswers = 5;
 
+//YUCK but ina  hurry
+const cycleNature = (e) => {
+
+    if (e.classList.contains("null")) {
+        e.classList.replace("null","main")
+    }
+    else if (e.classList.contains("tertiary")) {
+        e.classList.replace("tertiary","null")
+    }
+    else if (e.classList.contains("secondary")) {
+        e.classList.replace("secondary","tertiary")
+    }
+    else if (e.classList.contains("main")) {
+        e.classList.replace("main","secondary")
+    }
+}
+
 for (let i = 0; i < totalAnswers; i++) {
     const naturesHook = document.getElementById(`natures${i+1}-hook`)
     naturesList.forEach(nature => {
         console.log((i+1) + " " + nature)
         let element = document.createElement("div")
         element.textContent = nature
-        element.classList.add('nature-item')
+        element.classList.add('nature-item', 'null')
+        element.addEventListener('click', (() => cycleNature(element)))
         naturesHook.appendChild(element)
     })
 

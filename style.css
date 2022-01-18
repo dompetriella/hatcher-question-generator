@@ -22,6 +22,11 @@ body {
     border-right: dashed grey 3px;
 }
 
+.question-container {
+    display: flex;
+    align-content: center;
+}
+
 .question-text {
     max-width: 100%;
     font-size: 2em;
@@ -31,6 +36,29 @@ body {
     padding: 1em;
     height: 10vh;
     width: 75%;
+}
+
+.key {
+    padding-top: 1em;
+    gap: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nature-key-color {
+    padding: 1em;
+    border-radius: .25em;
+    background-color: lightgreen;
+}
+
+.secondary-key {
+    background-color: lightgoldenrodyellow;
+}
+
+.tertiary-key {
+    background-color: lightcoral;
 }
 
 .answer-inputs-container {
@@ -74,22 +102,39 @@ body {
 }
 
 .nature-item {
-    background-color: lightgrey;
     color: black;
     padding: 0.25em;
     margin: 0.25em 0.125em;
     box-shadow: 2px 2px 3px 2px black;
 }
 
+.null {
+    background-color: lightgrey;
+}
+
+.main {
+    background-color: lightgreen;
+}
+
+.secondary {
+    background-color: lightgoldenrodyellow
+}
+
+.tertiary {
+    background-color: lightcoral;
+}
+
 .generate-button {
+    font-size: 1.5em;
     display: flex;
     justify-content: center;
+    justify-self: center;
     align-items: center;
-    align-self: center;
+    align-self: flex-end;
     color: black;
-    margin-top: 1em;
-    height: 7em;
-    width: 7em;
+    margin: 1em 0 0 1em;
+    height: 3.5em;
+    width: 15em;
     background-color: cyan;
     border: solid 0.5em gold;
     border-radius: 1em;

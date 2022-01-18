@@ -10,8 +10,24 @@
 
       <section class="question-section">
         <div class="question-container">
-            <h3>Question</h3>
-            <textarea id="question-input" rows="3" cols="150" class="question-text"></textarea>
+            <div>
+                <h3>Question</h3>
+                <textarea id="question-input" rows="3" cols="40" class="question-text"></textarea>
+            </div>
+
+            <div class="generate-button" onclick="generateJSON()">Generate JSON</div>
+
+        </div>
+
+        <div class="key">
+
+            <div class="nature-key-color"></div>
+            <div class="nature-key-text">Main Nature</div>
+            <div class="nature-key-color secondary-key"></div>
+            <div class="nature-key-text">Secondary Nature</div>
+            <div class="nature-key-color tertiary-key"></div>
+            <div class="nature-key-text">Tertiary Nature</div>
+
         </div>
 
         <div class="answer-container-main">
@@ -93,8 +109,6 @@
 
 
         </div>
-
-        <div class="generate-button" onclick="generateJSON()">Generate JSON</div>
       </section>
 
       <section>

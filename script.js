@@ -57,32 +57,37 @@ const cycleNature = (e) => {
 
     if (e.classList.contains("null")) {
         e.classList.replace("null","main")
-    }
-    else if (e.classList.contains("tertiary")) {
-        e.classList.replace("tertiary","null")
-    }
-    else if (e.classList.contains("secondary")) {
-        e.classList.replace("secondary","tertiary")
+        e.setAttribute('data-nature', 'main')
     }
     else if (e.classList.contains("main")) {
         e.classList.replace("main","secondary")
+        e.setAttribute('data-nature', 'secondary')
     }
+    else if (e.classList.contains("secondary")) {
+        e.classList.replace("secondary","tertiary")
+        e.setAttribute('data-nature', 'tertiary')
+    }
+    else if (e.classList.contains("tertiary")) {
+        e.classList.replace("tertiary","null")
+        e.setAttribute('data-nature', 'null')
+    }
+
 }
 
 for (let i = 0; i < totalAnswers; i++) {
     const naturesHook = document.getElementById(`natures${i+1}-hook`)
     naturesList.forEach(nature => {
-        console.log((i+1) + " " + nature)
         let element = document.createElement("div")
         element.textContent = nature
         element.classList.add('nature-item', 'null')
+        element.setAttribute("data-number", i+1)
+        element.setAttribute('data-nature', 'null')
         element.addEventListener('click', (() => cycleNature(element)))
         naturesHook.appendChild(element)
     })
 
     const selectHook = document.getElementById(`select${i+1}`)
     backgrounds.forEach(bg => {
-        console.log((i+1) + " " + bg)
         element = document.createElement("option")
         element.textContent = bg
         element.value = bg
@@ -90,6 +95,49 @@ for (let i = 0; i < totalAnswers; i++) {
     })
 
 }
+
+const getNatureData = index => {
+    let returnString = ""
+    let mainList = []
+    let secondaryList = []
+    let tertiaryList = []
+    const natureChildren = document.getElementById(`natures${index}-hook`).children
+    const natureArray = [...natureChildren];
+    natureArray.forEach((item) => {
+        if (item.getAttribute("data-nature") === "main") mainList.push(item.textContent)
+        if (item.getAttribute("data-nature") === "secondary") secondaryList.push(item.textContent)
+        if (item.getAttribute("data-nature") === "tertiary") tertiaryList.push(item.textContent)
+    })
+
+    let mainString = "first: ["
+    mainList.forEach(nature => {
+        mainString += `"${nature}",`
+    })
+    mainString += "]"
+    // h8 u javascript
+    mainString =  mainString.slice(0, mainString.length-2) + mainString.slice(mainString.length-1);
+
+    let secondaryString = "second: ["
+    secondaryList.forEach(nature => {
+        secondaryString += `"${nature}",`
+    })
+    secondaryString += "]"
+    secondaryString =  secondaryString.slice(0, secondaryString.length-2) + secondaryString.slice(secondaryString.length-1);
+
+    let tertiaryString = "third: ["
+    tertiaryList.forEach(nature => {
+        tertiaryString += `"${nature}",`
+    })
+    tertiaryString += "]"
+    tertiaryString =  tertiaryString.slice(0, tertiaryString.length-2) + tertiaryString.slice(tertiaryString.length-1);
+
+    returnString = `
+        ${mainString},
+        ${secondaryString},
+        ${tertiaryString},`
+    return returnString
+}
+
 
 const generateJSON = () => {
     let outputString = ""
@@ -105,11 +153,17 @@ const generateJSON = () => {
 
     for (let i = 0; i < 5; i++) {
         let answerValue = document.getElementById(`answer${i+1}-input`).value
+        let bgValue = ""
+        if (document.getElementById(`select${i+1}`).value != "") {
+            bgValue = '"' + document.getElementById(`select${i+1}`).value + '"'
+        }
         if (answerValue != "") {
             answerString += 
-`    a${i+1}: {
-        "text: "${answerValue}",
-        "background": "[]",
+`    
+    a${i+1}: {
+        "text": "${answerValue}",
+        ${getNatureData(i+1)}
+        "background": [${bgValue}],
         },
     `
         }

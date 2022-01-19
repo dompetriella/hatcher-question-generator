@@ -109,7 +109,7 @@ const getNatureData = index => {
         if (item.getAttribute("data-nature") === "tertiary") tertiaryList.push(item.textContent)
     })
 
-    let mainString = "first: ["
+    let mainString = '"first": ['
     mainList.forEach(nature => {
         mainString += `"${nature}",`
     })
@@ -117,22 +117,21 @@ const getNatureData = index => {
     // h8 u javascript
     mainString =  mainString.slice(0, mainString.length-2) + mainString.slice(mainString.length-1);
 
-    let secondaryString = "second: ["
+    let secondaryString = '"second": ['
     secondaryList.forEach(nature => {
         secondaryString += `"${nature}",`
     })
     secondaryString += "]"
     secondaryString =  secondaryString.slice(0, secondaryString.length-2) + secondaryString.slice(secondaryString.length-1);
 
-    let tertiaryString = "third: ["
+    let tertiaryString = '"third": ['
     tertiaryList.forEach(nature => {
         tertiaryString += `"${nature}",`
     })
     tertiaryString += "]"
     tertiaryString =  tertiaryString.slice(0, tertiaryString.length-2) + tertiaryString.slice(tertiaryString.length-1);
 
-    returnString = `
-        ${mainString},
+    returnString = `${mainString},
         ${secondaryString},
         ${tertiaryString},`
     return returnString
@@ -160,7 +159,7 @@ const generateJSON = () => {
         if (answerValue != "") {
             answerString += 
 `    
-    a${i+1}: {
+        a${i+1}: {
         "text": "${answerValue}",
         ${getNatureData(i+1)}
         "background": [${bgValue}],
